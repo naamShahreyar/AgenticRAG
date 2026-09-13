@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     pinecone_index_name: str = ""
     pinecone_namespace: str = ""
     embedding_model: str = ""
+    embedding_dimension: int = ""
     gemini_model: str = ""
     top_k: int = 5
     max_retries: int = 1

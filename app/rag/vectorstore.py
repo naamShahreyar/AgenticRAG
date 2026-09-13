@@ -13,7 +13,7 @@ _vectorstore= None
 
 def get_embeddings():
     global _embeddings
-    if _embeddings in None:
+    if _embeddings is None:
         _embeddings = HuggingFaceEmbeddings(model_name=settings.embedding_model)
     
     return _embeddings
@@ -42,7 +42,7 @@ def ensure_index():
             name=settings.pinecone_index_name,
             dimension=desired_dimension,
             metric="cosine",
-            spec=ServerlessSpec(cloud="aws", region='us-wast-1')
+            spec=ServerlessSpec(cloud="aws", region='us-east-1')
         )
         
         while not pc.describe_index(settings.pinecone_index_name).status['ready']:
